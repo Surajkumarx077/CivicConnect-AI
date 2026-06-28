@@ -2,6 +2,8 @@
 
 **Smart Civic Issue Reporting & Management**
 
+AI-powered hyperlocal civic issue reporting platform using Google Gemini, Firebase, FastAPI, and Google Maps.
+
 CivicConnect AI bridges the gap between citizens and local government by leveraging AI to streamline issue reporting. Users simply upload a photo of a civic issue (like a pothole, illegal dumping, or broken streetlight), and our Gemini-powered engine automatically detects the problem, predicts its severity, and drafts an official complaint routed to the correct department.
 
 ## Features
