@@ -1,0 +1,10 @@
+{
+  "name": "CivicConnect AI",
+  "description": "An AI-powered hyperlocal community platform where citizens can report civic issues.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

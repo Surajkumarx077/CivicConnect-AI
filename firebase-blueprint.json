@@ -1,0 +1,55 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profiles and gamification stats",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "gamification": {
+          "type": "object",
+          "properties": {
+            "totalPoints": { "type": "number" },
+            "badges": { "type": "array", "items": { "type": "string" } },
+            "stats": {
+              "type": "object",
+              "properties": {
+                "reportsCreated": { "type": "number" },
+                "votesGiven": { "type": "number" },
+                "verifiedReports": { "type": "number" },
+                "helpedOthersCount": { "type": "number" }
+              }
+            }
+          }
+        },
+        "createdAt": { "type": "string", "format": "timestamp" }
+      },
+      "required": ["uid", "gamification"]
+    },
+    "PointTransaction": {
+      "title": "Point Transaction",
+      "description": "Ledger of points earned by users for civic actions",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "action": { "type": "string" },
+        "pointsDelta": { "type": "number" },
+        "referenceId": { "type": "string" },
+        "timestamp": { "type": "string", "format": "timestamp" }
+      },
+      "required": ["userId", "action", "pointsDelta", "timestamp"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Stores user profiles including points and badges"
+    },
+    "point_transactions/{transactionId}": {
+      "schema": { "$ref": "#/entities/PointTransaction" },
+      "description": "Immutable ledger of points awarded to users"
+    }
+  }
+}
